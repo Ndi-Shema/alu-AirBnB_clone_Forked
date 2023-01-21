@@ -2,6 +2,7 @@
 """ this is the base class for all models """
 import uuid
 from datetime import date, datetime, time
+from __init__ import storage
 
 
 class BaseModel():
@@ -13,6 +14,9 @@ class BaseModel():
         id : string
         created_at: datetime
         updated_at: datetime
+
+        getting arguments to recreate BaseModel
+        creates new instance Model
         """
         if kwargs:
             for key, value in kwargs.items():
@@ -28,6 +32,7 @@ class BaseModel():
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = self.created_at
+            storage.new(self)
 
     def __str__(self):
         """ default string output of class name \
@@ -40,6 +45,7 @@ class BaseModel():
         updated_at: datetime
         """
         self.updated_at = datetime.now()
+        storage.save(self)
 
     def to_dict(self):
         """
