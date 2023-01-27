@@ -52,8 +52,8 @@ class BaseModel():
         get the objects of the instance
         returns: dictionary
         """
-        temp_dict = self.__dict__
+        temp_dict = dict(self.__dict__)
         temp_dict['__class__'] = __class__.__name__
-        temp_dict['created_at'] = temp_dict['created_at']isoformat()
-        temp_dict['updated_at'] = temp_dict['updated_at']isoformat()
+        temp_dict['created_at'] = temp_dict['created_at'].isoformat()
+        temp_dict['updated_at'] = temp_dict['updated_at'].isoformat()
         return temp_dict
