@@ -6,6 +6,7 @@ from models.engine.file_storage import FileStorage
 
 
 class HBNBCommand(cmd.Cmd):
+    existing_classes = ['BaseModel']
     prompt = "(hbnb)"
     # test = BaseModel()
     # print(test)
@@ -26,11 +27,12 @@ class HBNBCommand(cmd.Cmd):
         if not new_class:
             print("** class name missing **")
         else:
-            new_class = BaseModel()
-            if new_class.__class__.__name__ != "BaseModel":
+            if new_class not in self.existing_classes:
+                # print(self.existing_classes)
                 print("** class doesn't exist **")
             else:
                 # print(new_class)
+                new_class = BaseModel()
                 new_class.save()
                 # print(new_class)
                 print(new_class.__dict__['id'])
@@ -52,32 +54,58 @@ class HBNBCommand(cmd.Cmd):
         if (len(items)) == 1 and items[0] == '':
             print("** class name missing **")
         else:
-            if (len(items)) < 2:
-                print("** instance id missing **")
+            if items[0] not in self.existing_classes:
+                print("** class doesn't exist **")
             else:
-                data_class = FileStorage()
-                data_class.reload()
-                loaded_data = data_class.all()
-                # print(loaded_data)
-                try:
-                    print("key is {}".format(items[0] + "." + items[1]))
-                    class_found = loaded_data[items[0] + "." + items[1]]
-                    if class_found['__class__'] != "BaseModel":
-                        print("** class doesn't exist **")
-                    else:
+                if (len(items)) < 2:
+                    print("** instance id missing **")
+                else:
+                    data_class = FileStorage()
+                    data_class.reload()
+                    loaded_data = data_class.all()
+                    # print(loaded_data)
+                    try:
+                        print("key is {}".format(items[0] + "." + items[1]))
+                        class_found = loaded_data[items[0] + "." + items[1]]
                         new_class_found = BaseModel(class_found)
                         print(new_class_found)
-                except KeyError:
-                    print("** no instance found **")
+                    except KeyError:
+                        print("** no instance found **")
 
-                # if loaded_data[items[0] + "." + items[1]] is None:
-                #    print("** no instance found **")
-                # else:
-                #   class_found = loaded_data[items[0] + "." + items[1]]
-                #    if class_found.__class__.__name__ != "BaseModel":
-                #        print("** class doesn't exist **")
-                #    else:
-                #        print(class_found)
+                    # if loaded_data[items[0] + "." + items[1]] is None:
+                    #    print("** no instance found **")
+                    # else:
+                    #   class_found = loaded_data[items[0] + "." + items[1]]
+                    #    if class_found.__class__.__name__ != "BaseModel":
+                    #        print("** class doesn't exist **")
+                    #    else:
+                    #        print(class_found)
+
+
+    def do_destroy(self, *argv):
+        """Deletes an instance based on the class name and id
+        (saves the changes into the json file) """
+
+        items = argv[0].split(" ")
+        if (len(items)) == 1 and items[0] == '':
+            print("** class name missing **")
+        else:
+            if items[0] not in self.existing_classes:
+                print("** class doesn't exist **")
+            else:
+                if (len(items)) < 2:
+                    print("** instance id missing **")
+                else:
+                    data_class = FileStorage()
+                    data_class.reload()
+                    loaded_data = data_class.all()
+                    # print(loaded_data)
+                    try:
+                        print("key is {}".format(items[0] + "." + items[1]))
+                        del loaded_data[items[0] + "." + items[1]]
+                        data_class.save()
+                    except KeyError:
+                        print("** no instance found **")
 
     do_EOF = do_quit
 
