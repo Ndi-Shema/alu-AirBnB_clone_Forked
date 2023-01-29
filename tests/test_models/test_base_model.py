@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """ test model for main base class"""
 import unittest
+from time import sleep
+
 from models.base_model import BaseModel
 
 
@@ -55,9 +57,10 @@ class TestCaseBaseModel(unittest.TestCase):
     def test_save(self):
         """ checking if calling save updates the time"""
         old_time = self.my_model.to_dict()['updated_at']
+        sleep(2)
         self.my_model.save()
-        new_time = self.my_model.to_dict()['updated_at']
-        self.assertEqual(old_time, new_time)
+        self.assertNotEqual(self.my_model.to_dict()['created_at'],
+                            self.my_model.to_dict()['updated_at'])
 
     def test_id(self):
         """ ensuring the id does not
