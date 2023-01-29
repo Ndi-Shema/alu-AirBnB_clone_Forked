@@ -71,6 +71,7 @@ class TestCaseBaseModel(unittest.TestCase):
         self.assertEqual(my_model_json['id'], self.my_model.__dict__['id'])
 
     def test_str_(self):
+        """ test for string print function """
         self.assertEqual(print(self.my_model), print(self.my_model))
 
     def test_sizeofDict(self):
