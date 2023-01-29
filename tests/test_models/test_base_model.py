@@ -70,6 +70,9 @@ class TestCaseBaseModel(unittest.TestCase):
         my_model_json = self.my_model.to_dict()
         self.assertEqual(my_model_json['id'], self.my_model.__dict__['id'])
 
+    def test_str_(self):
+        self.assertEqual(print(self.my_model), print(self.my_model))
+
     def test_sizeofDict(self):
         """ensuring the dictionary is the expected length
         as converting to json has one additional value """
