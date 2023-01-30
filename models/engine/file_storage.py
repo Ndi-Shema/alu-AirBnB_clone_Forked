@@ -4,6 +4,7 @@
     stores and does the reverse
 """
 import json
+from os import path
 
 
 class FileStorage:
@@ -12,28 +13,34 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
-    def __init__(self):
-        """ for instance variables """
-
     def all(self):
         """ returns : dictionary """
         return self.__objects
 
     def new(self, obj):
         """ set object with key """
-        self.__objects[obj['__class__'] + '.' + obj['id']] = obj
+        self.__objects[obj.__class__.__name__ + '.' + obj.id] = obj
 
     def save(self):
         """ serializes to json file """
-        # if path.exists(self.__file_path):
-        with open(self.__file_path, "w", encoding='utf-8') as out_file:
-            json.dump(self.__objects, out_file)
+        if path.exists(self.__file_path):
+            temp = {}
+            for key, value in self.__objects.items():
+                temp[key] = value.to_dict()
+            with open(self.__file_path, "w", encoding='utf-8') as out_file:
+                json.dump(temp, out_file)
 
     def reload(self):
         """ deserializes json to file """
-        # if path.exists(self.__file_path):
-        with open(self.__file_path, "r", encoding='utf-8') as in_file:
-            self.__objects = json.load(in_file)
+        if path.exists(self.__file_path):
+            with open(self.__file_path, "r", encoding='utf-8') as in_file:
+                dataset = json.load(in_file)
+                for data in dataset.values():
+                    name_of_class = data['__class__']
+                    self.new(eval(name_of_class + "(**" + str(data) + ")"))
+
+
+
 
 
 
