@@ -77,7 +77,9 @@ class TestCaseBaseModel(unittest.TestCase):
         # the_id = self.my_model.id
         # the_dict = self.my_model.__dict__
         temp_hold = str(self.my_model)
-        self.assertEqual(temp_hold.split(' ')[0], "[BaseModel]")
+        self.assertEqual(temp_hold.split(" ")[0], "[BaseModel]")
+        self.assertEqual(temp_hold.split(" ")[1], "({})".format(self.my_model.id))
+        self.assertEqual(eval(temp_hold.split(" ")[2]), self.my_model.__dict__)
 
     def test_sizeofDict(self):
         """ensuring the dictionary is the expected length
