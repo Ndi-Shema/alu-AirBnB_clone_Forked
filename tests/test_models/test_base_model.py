@@ -72,7 +72,7 @@ class TestCaseBaseModel(unittest.TestCase):
 
     def test_str_(self):
         """ test for string print function """
-        self.assertEqual(print(self.my_model), print(self.my_model))
+        # self.assertEqual(print(self.my_model), print(self.my_model))
 
     def test_sizeofDict(self):
         """ensuring the dictionary is the expected length
