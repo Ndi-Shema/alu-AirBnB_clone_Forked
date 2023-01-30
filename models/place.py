@@ -2,7 +2,7 @@
 """Class Place that inherits from BaseModel"""
 from models.base_model import BaseModel
 
-  class Place(BaseModel):
+class Place(BaseModel):
     """Class that represents a place to stay"""
     city_id = ""
     user_id = ""
