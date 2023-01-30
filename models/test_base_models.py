@@ -27,7 +27,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(self.model.to_dict(), self.test_dict)
 
     def test_str(self):
-        """Test if the __str__ method returns the correct string representation of the object"""
+        """Test if the __str__ method returns the correct string representation of the object."""
         self.assertEqual(str(self.model), "[BaseModel] ({}) <{'id': '{}', 'created_at': datetime.datetime({}, {}, {}, {}, {}), 'updated_at': datetime.datetime({}, {}, {}, {}, {})}>".format(self.model.id, self.model.id, self.model.created_at.year, self.model.created_at.month, self.model.created_at.day, self.model.created_at.hour, self.model.created_at.minute, self.model.updated_at.year, self.model.updated_at.month, self.model.updated_at.day, self.model.updated_at.hour, self.model.updated_at.minute))
 
 if __name__ == '__main__':
