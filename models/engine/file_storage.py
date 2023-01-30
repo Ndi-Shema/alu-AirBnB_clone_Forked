@@ -4,14 +4,12 @@
     stores and does the reverse
 """
 import json
-import os.path
-from os import path
 
 
-class FileStorage():
+class FileStorage:
     """ file storage class"""
 
-    __file_path = 'file.json'
+    __file_path = "file.json"
     __objects = {}
 
     def __init__(self):
@@ -23,16 +21,19 @@ class FileStorage():
 
     def new(self, obj):
         """ set object with key """
-        self.__objects[obj.__dict__['id'] + '.' + obj.__dict__['id']] = obj
+        self.__objects[obj['__class__'] + '.' + obj['id']] = obj
 
     def save(self):
         """ serializes to json file """
-        if path.exists(self.__file_path):
-            with open(self.__file_path, "w") as file:
-                json.dump(self.__objects, file)
+        # if path.exists(self.__file_path):
+        with open(self.__file_path, "w", encoding='utf-8') as out_file:
+            json.dump(self.__objects, out_file)
 
     def reload(self):
         """ deserializes json to file """
-        if path.exists(self.__file_path):
-            with open(self.__file_path, "r") as file:
-                self.__objects = json.loads(file)
+        # if path.exists(self.__file_path):
+        with open(self.__file_path, "r", encoding='utf-8') as in_file:
+            self.__objects = json.load(in_file)
+
+
+
