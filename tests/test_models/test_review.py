@@ -38,7 +38,7 @@ class TestReview(unittest.TestCase):
         """Test if text can be set and retrieved correctly"""
         review = Review()
         self.assertEqual(review.text, "")
-        review.text = "This is a great place!"
+        review.text = "This is a great place! "
         self.assertEqual(review.text, "This is a great place!")
 
 if __name__ == "__main__":
