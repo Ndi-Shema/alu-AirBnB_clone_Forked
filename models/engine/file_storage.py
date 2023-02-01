@@ -5,6 +5,7 @@
 """
 import json
 from os import path
+from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -25,13 +26,15 @@ class FileStorage:
         """ serializes to json file """
         if path.exists(self.__file_path):
             temp = {}
-            for key, value in self.__objects.items():
-                temp[key] = value.to_dict()
+            for key in self.__objects:
+                temp[key] = self.__objects[key].to_dict()
             with open(self.__file_path, "w", encoding='utf-8') as out_file:
                 json.dump(temp, out_file)
 
     def reload(self):
         """ deserializes json to file """
+        from models.base_model import BaseModel
+
         if path.exists(self.__file_path):
             with open(self.__file_path, "r", encoding='utf-8') as in_file:
                 dataset = json.load(in_file)
