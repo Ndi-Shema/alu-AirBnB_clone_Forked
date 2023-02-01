@@ -42,7 +42,7 @@ class BaseModel:
         """ default string output of class name \
                 ,id and dictionary files """
         return '[{}] ({}) {}'\
-            .format(__class__.__name__, self.id, self.__dict__)
+            .format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """ update of attribute updated_at with latest time
