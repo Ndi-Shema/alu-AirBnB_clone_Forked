@@ -40,7 +40,8 @@ class BaseModel:
 
     def __str__(self):
         """ default string output of class name \
-                ,id and dictionary files """
+                ,id and dictionary files , more comments
+                 """
         return '[{}] ({}) {}'\
             .format(self.__class__.__name__, self.id, self.__dict__)
 
