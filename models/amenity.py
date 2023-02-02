@@ -12,4 +12,4 @@ class Amenity(BaseModel):
 
     def __init__(self, *args, **kwargs):
         """ Set up an Amenity instance with its properties. """
-        super().__init__(*args, **kwargs
+        super().__init__(*args, **kwargs)
