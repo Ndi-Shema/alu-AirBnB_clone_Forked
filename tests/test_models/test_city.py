@@ -2,6 +2,7 @@ import unittest
 from models.base_model import BaseModel
 from models.city import City
 
+
 class TestCity(unittest.TestCase):
     """Test cases for City class."""
 

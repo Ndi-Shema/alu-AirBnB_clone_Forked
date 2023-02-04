@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-
 """ class for representing amenities.
 """
-
 from models.base_model import BaseModel
+
 
 class Amenity(BaseModel):
     """ Amenity class holds information abt a specific amenity """

@@ -2,6 +2,8 @@
 """Unit test for User class"""
 import unittest
 from models.user import User
+
+
 class TestUser(unittest.TestCase):
     def test_class(self):
         """Tests the class of an instance of User"""
