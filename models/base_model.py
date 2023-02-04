@@ -9,18 +9,19 @@ class BaseModel:
     """class defining commom attributes
     for other classes"""
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *argv, **kwargs):
         """ instance attributes
         id : string
         created_at: datetime
         updated_at: datetime
 
-        getting arguments to recreate BaseModel
+        getting arguments to recreate
+        BaseModel
         creates new instance Model
         """
-        # self.id = str(uuid.uuid4())
-        # self.created_at = datetime.now()
-        # self.updated_at = self.created_at
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = self.created_at
 
         if kwargs:
             for key, value in kwargs.items():
@@ -40,13 +41,14 @@ class BaseModel:
 
     def __str__(self):
         """ default string output of class name \
-                ,id and dictionary files , more comments
-                 """
+                ,id and dictionary files """
         return '[{}] ({}) {}'\
             .format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
-        """ update of attribute updated_at with latest time
+        """
+        update of attribute updated_at
+        with latest time
         updated_at: datetime
         """
         self.updated_at = datetime.now()
@@ -57,7 +59,7 @@ class BaseModel:
         get the objects of the instance
         returns: dictionary
         """
-        temp_dict = dict(self.__dict__)
+        temp_dict = self.__dict__.copy()
         temp_dict['__class__'] = self.__class__.__name__
         temp_dict['created_at'] = temp_dict['created_at'].isoformat()
         temp_dict['updated_at'] = temp_dict['updated_at'].isoformat()

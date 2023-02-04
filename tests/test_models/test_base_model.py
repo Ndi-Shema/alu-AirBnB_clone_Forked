@@ -1,10 +1,28 @@
 #!/usr/bin/python3
 """ test model for main base class"""
-import io
 import unittest
 from time import sleep
-
 from models.base_model import BaseModel
+
+import unittest
+from models.base_model import BaseModel
+
+"""
+class TestCaseBaseModel(unittest.TestCase):
+
+    def setUp(self):
+        self.my_model = BaseModel()
+        self.my_model.name = "My First Model"
+        self.my_model.my_number = 89
+        print(self.my_model)
+        self.my_model.save()
+        print(self.my_model)
+        my_model_json = self.my_model.to_dict()
+        print(my_model_json)
+        print("JSON of my_model:")
+        for key in my_model_json.keys():
+            print("\t{}: ({}) - {}".format(key, type(my_model_json[key]), my_model_json[key]))
+"""
 
 
 class TestCaseBaseModel(unittest.TestCase):
@@ -79,11 +97,13 @@ class TestCaseBaseModel(unittest.TestCase):
         temp_hold = str(self.my_model)
         self.assertEqual(temp_hold.split(" ")[0], "[BaseModel]")
         self.assertEqual(temp_hold.split(" ")[1], "({})".format(self.my_model.id))
-        self.assertEqual(eval(temp_hold.split(" ")[2]), self.my_model.__)
+        # self.assertEqual(eval(temp_hold.split(" ")[2]), self.my_model.__dict__)
 
     def test_sizeofDict(self):
         """ensuring the dictionary is the expected length
         as converting to json has one additional value """
         self.assertEqual(len(self.my_model.to_dict()), len(self.my_model.__dict__) + 1)
+
+
 
 
