@@ -4,6 +4,7 @@ from models.base_model import BaseModel
 
 
 class TestAmenity(unittest.TestCase):
+
     def test_amenity_creation(self):
         """ Test if Amenity instance is created correctly. """
         a = Amenity()

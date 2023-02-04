@@ -3,7 +3,7 @@ from models.review import Review
 from models.base_model import BaseModel
 
 
-class TestReview(unittest.TestCase):
+class TestCaseReview(unittest.TestCase):
     """Test cases for Review class."""
 
     def test_instance(self):

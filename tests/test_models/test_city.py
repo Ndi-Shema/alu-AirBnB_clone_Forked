@@ -3,7 +3,7 @@ from models.base_model import BaseModel
 from models.city import City
 
 
-class TestCity(unittest.TestCase):
+class TestCaseCity(unittest.TestCase):
     """Test cases for City class."""
 
     def test_instance(self):

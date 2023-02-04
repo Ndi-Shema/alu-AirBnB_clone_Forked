@@ -3,7 +3,7 @@ from models.base_model import BaseModel
 from models.place import Place
 
 
-class TestPlace(unittest.TestCase):
+class TestCasePlace(unittest.TestCase):
     def setUp(self):
         self.p = Place()
 
