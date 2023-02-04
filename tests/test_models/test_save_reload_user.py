@@ -9,14 +9,14 @@ class TestCaseUser(unittest.TestCase):
     def setUp(self):
         """ user test setup """
         all_objs = storage.all()
-        print("-- Reloaded objects --")
-        for obj_id in all_objs.keys():
-            obj = all_objs[obj_id]
-            print(obj)
+        # print("-- Reloaded objects --")
+        # for obj_id in all_objs.keys():
+        #   obj = all_objs[obj_id]
+        #   print(obj)
 
     def test_variables(self):
         """ test name before and after """
-        print("-- Create a new User --")
+        # print("-- Create a new User --")
         my_user = User()
         my_user.first_name = "Betty"
         my_user.last_name = "Bar"
