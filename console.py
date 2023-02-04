@@ -13,7 +13,7 @@ from models.amenity import Amenity
 
 class HBNBCommand(cmd.Cmd):
     existing_classes = ['BaseModel', 'User', 'City',
-                        'State', 'Place', 'Review', 'Amenity', ' ']
+                        'State', 'Place', 'Review', 'Amenity', ' '] 
     prompt = "(hbnb)"
     # test = BaseModel()
     # print(test)
@@ -162,6 +162,22 @@ class HBNBCommand(cmd.Cmd):
 
                     except KeyError:
                         print("** no instance found **")
+
+    def do_all(self, class_type):
+        """ prints all string representation of all instances based
+        or not on the class name """
+        if class_type not in self.existing_classes:
+            print("** class doesn't exist **")
+        else:
+            data_class = FileStorage()
+            temp_list = []
+            data_class.reload()
+            loaded_data = data_class.all()
+            single_representation = list(loaded_data)
+            for x in single_representation:
+                temp_hold = BaseModel(loaded_data[x])
+                print(temp_hold)
+            # print(temp_list)
 
     do_EOF = do_quit
 
