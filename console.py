@@ -12,7 +12,8 @@ from models.amenity import Amenity
 
 
 class HBNBCommand(cmd.Cmd):
-    existing_classes = ['BaseModel', 'User', 'City', 'State', 'Place', 'Review', 'Amenity', ' ']
+    existing_classes = ['BaseModel', 'User', 'City',
+                        'State', 'Place', 'Review', 'Amenity', ' ']
     prompt = "(hbnb)"
     # test = BaseModel()
     # print(test)
@@ -144,7 +145,6 @@ class HBNBCommand(cmd.Cmd):
                         # print("key is {}".format(items[0] + "." + items[1]))
                         # del loaded_data[items[0] + "." + items[1]]
                         temp_dict = storage.all()[items[0] + "." + items[1]]
-
                         # found the instance now to change many things as possible.
                         if (len(items)) < 3:
                             print("** attribute name missing **")
