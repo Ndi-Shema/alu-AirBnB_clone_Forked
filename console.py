@@ -142,7 +142,7 @@ class HBNBCommand(cmd.Cmd):
                     # loaded_data = storage.all()
                     # print(loaded_data)
                     try:
-                        # print("key is {}".format(items[0] + "." + items[1]))
+                        # print("key is{}".format(items[0]+"."+items[1]))
                         # del loaded_data[items[0] + "." + items[1]]
                         temp_dict = storage.all()[items[0] + "." + items[1]]
                         if (len(items)) < 3:
@@ -162,22 +162,6 @@ class HBNBCommand(cmd.Cmd):
 
                     except KeyError:
                         print("** no instance found **")
-
-    def do_all(self, class_type):
-        """ prints all string representation of all instances based
-        or not on the class name """
-        if class_type not in self.existing_classes:
-            print("** class doesn't exist **")
-        else:
-            data_class = FileStorage()
-            temp_list = []
-            data_class.reload()
-            loaded_data = data_class.all()
-            single_representation = list(loaded_data)
-            for x in single_representation:
-                temp_hold = BaseModel(loaded_data[x])
-                print(temp_hold)
-            # print(temp_list)
 
     do_EOF = do_quit
 
