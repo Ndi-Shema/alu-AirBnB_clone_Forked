@@ -34,11 +34,9 @@ class FileStorage:
         from models.place import Place
         from models.review import Review
         from models.amenity import Amenity
-        
         if path.exists(self.__file_path):
             with open(self.__file_path, "r", encoding='utf-8') as in_file:
                 dataset = json.load(in_file)
                 for data in dataset.values():
                     name_of_class = data['__class__']
                     self.new(eval(name_of_class + "(**" + str(data) + ")"))
-

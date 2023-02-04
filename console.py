@@ -13,7 +13,7 @@ from models.amenity import Amenity
 
 class HBNBCommand(cmd.Cmd):
     existing_classes = ['BaseModel', 'User', 'City',
-                        'State', 'Place', 'Review', 'Amenity', ' '] 
+                        'State', 'Place', 'Review', 'Amenity', ' ']
     prompt = "(hbnb)"
     # test = BaseModel()
     # print(test)

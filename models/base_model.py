@@ -28,7 +28,8 @@ class BaseModel:
                 if key != '__class__':
                     if key in ['created_at', 'updated_at']:
                         temp_dict = self.__dict__
-                        temp_dict[key] = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                        temp_dict[key] = \
+                            datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                     else:
                         temp_dict = self.__dict__
                         temp_dict[key] = value
