@@ -23,10 +23,6 @@ class HBNBCommand(cmd.Cmd):
         is entered in response """
         pass
 
-    def do_EOF(self):
-        """ end of file quiting """
-        return True
-
     def do_quit(self, argv):
         """exit - Exit Applicaiton"""
         return True
@@ -172,6 +168,8 @@ class HBNBCommand(cmd.Cmd):
 
                     except KeyError:
                         print("** no instance found **")
+
+    do_EOF = do_quit
 
 
 if __name__ == '__main__':
