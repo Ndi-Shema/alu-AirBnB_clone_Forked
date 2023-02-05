@@ -128,6 +128,7 @@ class HBNBCommand(cmd.Cmd):
             # print(type(all_objects))
             # print(all_objects)
             for key, value in enumerate(all_objects):
+                print(" key = {} , value = {}".format(key, value))
                 out = all_objects[value]
                 if class_type == out.__class__.__name__:
                     print(out)
@@ -171,8 +172,6 @@ class HBNBCommand(cmd.Cmd):
 
                     except KeyError:
                         print("** no instance found **")
-
-    do_EOF = do_quit
 
 
 if __name__ == '__main__':
