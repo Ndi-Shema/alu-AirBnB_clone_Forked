@@ -49,7 +49,7 @@ JSON - Data serialization format.
 - Place : Represents a place, that can be booked on the platform
 - City : Represents a city, where places are located
 
-**Example Code for Recognized Classes**
+**Example Code for Recognized Classes.**
     `# Define the Basemodel class`
 `class Basemodel:`
     `def __init__(self, id, created_at, updated_at):`
