@@ -119,10 +119,13 @@ class HBNBCommand(cmd.Cmd):
         """ prints all string representation of all instances based
         or not on the class name """
         all_objects = storage.all()
+        temp_dict = []
 
         if not class_type:
             for key, value in all_objects.items():
-                print(value)
+                # print(value)
+                temp_dict.append(str(value))
+            print(temp_dict)
         else:
             if class_type not in self.existing_classes:
                 print("** class doesn't exist **")
@@ -131,7 +134,8 @@ class HBNBCommand(cmd.Cmd):
                     #   print(" key = {} , value = {}".format(key, value))
                     out = all_objects[value]
                     if class_type == out.__class__.__name__:
-                        print(out)
+                        temp_dict.append(str(out))
+                print(temp_dict)
 
     def do_update(self, *argv):
         """ updates an instance based on the class\
