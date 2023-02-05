@@ -27,9 +27,10 @@ class HBNBCommand(cmd.Cmd):
         """exit - Exit Applicaiton"""
         return True
 
-    def help_quit(self):
-        """help for quit here"""
-        print('Quit command to exit the program')
+    def do_EOF(self, argv):
+        """ end of file """
+        print("")
+        return True
 
     def do_create(self, new_class):
         """ Creates a new instance of Basemodel
@@ -168,8 +169,6 @@ class HBNBCommand(cmd.Cmd):
 
                     except KeyError:
                         print("** no instance found **")
-
-    do_EOF = do_quit
 
 
 if __name__ == '__main__':
