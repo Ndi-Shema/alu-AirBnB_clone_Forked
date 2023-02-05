@@ -9,20 +9,24 @@ class TestAmenity(unittest.TestCase):
 
     def test_amenity_creation(self):
         """ Test if Amenity instance is created correctly. """
-        a = Amenity()
-        self.assertIsInstance(a, Amenity)
+        amenity = Amenity()
+        self.assertIsInstance(amenity, Amenity)
 
     def test_subclass(self):
         """ checking if subclass """
-        a = Amenity()
-        self.assertTrue(issubclass(type(a), BaseModel))
+        amenity = Amenity()
+        self.assertTrue(issubclass(type(amenity), BaseModel))
 
     def test_amenity_name(self):
         """ Test if amenity name is set correctly. """
-        a = Amenity()
-        a.name = "Wifi"
-        self.assertEqual(a.name, "Wifi")
-        self.assertIsNotNone(a.id)
+        amenity = Amenity()
+        amenity.name = "Wifi"
+        self.assertEqual(amenity.name, "Wifi")
+
+    def test_id(self):
+        """ check id to ensure class inherits"""
+        amenity = Amenity()
+        self.assertIsNotNone(amenity.id)
 
     if __name__ == '__main__':
         unittest.main()
