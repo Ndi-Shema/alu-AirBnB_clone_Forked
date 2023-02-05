@@ -37,32 +37,32 @@ You can utilize the following fundamental commands
 
 
 **BUILT WITH**.
-Python - The programming language used.
-JSON - Data serialization format.
+* Python - The programming language used.
+* JSON - Data serialization format.
 
 **RECOGNIZED CLASSES.**
-- Basemodel : The base model class, provides common attributes and methods for all other classes
-- User : Represents a user, who can create bookings and listings on the platform
-- State : Represents a state, where places are located
-- Amenity : Represents an amenity, that a place can offer
-- Review : Represents a review, written by a user about a place
-- Place : Represents a place, that can be booked on the platform
-- City : Represents a city, where places are located
+- **Basemodel** : The base model class, provides common attributes and methods for all other classes
+- **User** : Represents a user, who can create bookings and listings on the platform
+- **State** : Represents a state, where places are located
+- **Amenity** : Represents an amenity, that a place can offer
+- **Review** : Represents a review, written by a user about a place
+- **Place** : Represents a place, that can be booked on the platform
+- **City** : Represents a city, where places are located
 
 **Example Code for Recognized Classes.**
-    `# Define the Basemodel class`
-`class Basemodel:`
-    `def __init__(self, id, created_at, updated_at):`
-        `self.id = id`
-        `self.created_at = created_at`
-        `self.updated_at = updated_at`
-
-`# Define the User class`
-`class User(Basemodel):`
-    `def __init__(self)` 
+*     `# Define the Basemodel class`
+* `class Basemodel:`
+*     `def __init__(self, id, created_at, updated_at):`
+*         `self.id = id`
+*         `self.created_at = created_at`
+*         `self.updated_at = updated_at`
+* 
+* `# Define the User class`
+* `class User(Basemodel):`
+*     `def __init__(self)` 
 
 **AUTHORS.**
-Nwalahnjie Anye <akumawahanye@gmail.com>
-Shema Fred <fredshema24@gmail.com>
+* Nwalahnjie Anye <akumawahanye@gmail.com>
+* Shema Fred <fredshema24@gmail.com>
 
 
