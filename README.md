@@ -29,6 +29,8 @@ Copy code
 Writing a Command Interpreter
 Writing a command interpreter is a crucial first step in managing your AirBnB objects. This will allow you to use the things you create for this project in all subsequent projects, such as the database store, API, front-end in HTML/CSS, etc.
 ---
+
+
 **THE CONSOLE**
 
 Using the Console\
@@ -75,8 +77,8 @@ class User(Basemodel):
 
 
 
-**AUTHORS.**
-Nwalahnjie Anye <a.nwalahnjie@alustudent.com>
+**AUTHORS.**\
+Nwalahnjie Anye <a.nwalahnjie@alustudent.com>\
 Shema Fred <fredshema24@gmail.com>
 
 
