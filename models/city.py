@@ -1,15 +1,12 @@
 #!/usr/bin/python3
+"""City class definition"""
 
 from models.base_model import BaseModel
-"""City class definition"""
-"""Import BaseModel"""
 
 
 class City(BaseModel):
     """Define City class"""
-    """ State ID """
     state_id = ""
-    """ City name """
     name = ""
 
     """Constructor for the class"""
