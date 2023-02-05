@@ -10,14 +10,14 @@ class TestAmenity(unittest.TestCase):
     def test_amenity_creation(self):
         """ Test if Amenity instance is created correctly. """
         amenity = Amenity()
-        self.assertIsInstance(amenity, Amenity)
+        self.assertIsInstance(self.amenity, Amenity)
 
-    def test_subclass(self):
+    def test_is_subclass(self):
         """ checking if subclass """
         amenity = Amenity()
-        self.assertTrue(issubclass(type(amenity), BaseModel))
+        self.assertTrue(issubclass(type(self.amenity), BaseModel))
 
-    def test_amenity_name(self):
+    def test_attribute(self):
         """ Test if amenity name is set correctly. """
         amenity = Amenity()
         amenity.name = "Wifi"

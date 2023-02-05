@@ -39,7 +39,6 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         else:
             if new_class not in self.existing_classes:
-                # print(self.existing_classes)
                 print("** class doesn't exist **")
             else:
                 new_class = eval(new_class + "()")
@@ -49,17 +48,7 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, *argv):
         """ Prints the string representation of an instance based on
         the class name and id """
-
-        # print(type(argv))
-        # print(argv[0][0])
-        # print(argv)
         items = argv[0].split(" ")
-        # print(items)
-        # print("the Len is {}".format(len(items)))
-        # print(len(items))
-
-        # print(args[0])
-
         if (len(items)) == 1 and items[0] == '':
             print("** class name missing **")
         else:
@@ -69,27 +58,11 @@ class HBNBCommand(cmd.Cmd):
                 if (len(items)) < 2:
                     print("** instance id missing **")
                 else:
-
-                    # storage.reload()
-                    # loaded_data = storage.all()
-                    # print(loaded_data)
                     try:
-                        # print("key is {}".format(items[0] + "." + items[1]))
                         class_found = storage.all()[items[0] + "." + items[1]]
-                        # new_class_found = BaseModel(class_found)
-                        # print(new_class_found)
                         print(class_found)
                     except KeyError:
                         print("** no instance found **")
-
-                    # if loaded_data[items[0] + "." + items[1]] is None:
-                    #    print("** no instance found **")
-                    # else:
-                    #   class_found = loaded_data[items[0] + "." + items[1]]
-                    #    if class_found.__class__.__name__ != "BaseModel":
-                    #        print("** class doesn't exist **")
-                    #    else:
-                    #        print(class_found)
 
     def do_destroy(self, *argv):
         """Deletes an instance based on the class name and id
@@ -105,11 +78,7 @@ class HBNBCommand(cmd.Cmd):
                 if (len(items)) < 2:
                     print("** instance id missing **")
                 else:
-                    # storage.reload()
-                    # loaded_data = storage.all()
-                    # print(loaded_data)
                     try:
-                        # print("key is {}".format(items[0] + "." + items[1]))
                         del storage.all()[items[0] + "." + items[1]]
                         storage.save()
                     except KeyError:
@@ -123,7 +92,6 @@ class HBNBCommand(cmd.Cmd):
 
         if not class_type:
             for key, value in all_objects.items():
-                # print(value)
                 temp_dict.append(str(value))
             print(temp_dict)
         else:
@@ -131,7 +99,6 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 for key, value in enumerate(all_objects):
-                    #   print(" key = {} , value = {}".format(key, value))
                     out = all_objects[value]
                     if class_type == out.__class__.__name__:
                         temp_dict.append(str(out))
@@ -152,12 +119,7 @@ class HBNBCommand(cmd.Cmd):
                 if (len(items)) < 2:
                     print("** instance id missing **")
                 else:
-                    # storage.reload()
-                    # loaded_data = storage.all()
-                    # print(loaded_data)
                     try:
-                        # print("key is{}".format(items[0]+"."+items[1]))
-                        # del loaded_data[items[0] + "." + items[1]]
                         temp_dict = storage.all()[items[0] + "." + items[1]]
                         if (len(items)) < 3:
                             print("** attribute name missing **")
@@ -170,8 +132,6 @@ class HBNBCommand(cmd.Cmd):
                                     # set attr build in function
                                     txt = items[3]
                                     temp_dict.__dict__[items[2]] = txt[1:-1]
-                                    # print(temp_dict.__dict__)
-                                    # setattr(temp_dict, items[2], txt[1:-1])
                                     temp_dict.save()
 
                     except KeyError:
