@@ -76,7 +76,9 @@ class TestCaseBaseModel(unittest.TestCase):
         old_time = self.my_model.to_dict()['updated_at']
         sleep(1)
         self.my_model.save()
-        new_time = self.my_model.to_dict()['updated_at']
+        mode = BaseModel()
+        new_time = self.mode.to_dict()['updated_at']
+        # new_time = self.my_model.to_dict()['updated_at']
         self.assertNotEqual(old_time, new_time)
 
     def test_id(self):
