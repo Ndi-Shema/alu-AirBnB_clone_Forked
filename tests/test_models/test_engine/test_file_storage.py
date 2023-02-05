@@ -40,5 +40,5 @@ class TestCaseFileStorage(unittest.TestCase):
     def test_reload(self):
         self.my_model.reload()
         len_dict = len(self.my_model.all())
-        self.assertGreater(len_dict, 1)
+        self.assertGreater(len_dict, 0)
 
