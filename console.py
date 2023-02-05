@@ -13,7 +13,7 @@ from models.amenity import Amenity
 
 class HBNBCommand(cmd.Cmd):
     existing_classes = ['BaseModel', 'User', 'City',
-                        'State', 'Place', 'Review', 'Amenity', ' ']
+                        'State', 'Place', 'Review', 'Amenity', '']
     prompt = "(hbnb)"
     # test = BaseModel()
     # print(test)
@@ -125,7 +125,7 @@ class HBNBCommand(cmd.Cmd):
             # print(type(all_objects))
             # print(all_objects)
             for key, value in enumerate(all_objects):
-                print(" key = {} , value = {}".format(key, value))
+                #   print(" key = {} , value = {}".format(key, value))
                 out = all_objects[value]
                 if class_type == out.__class__.__name__:
                     print(out)
