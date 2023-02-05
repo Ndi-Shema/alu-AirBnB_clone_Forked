@@ -163,6 +163,11 @@ class HBNBCommand(cmd.Cmd):
                     except KeyError:
                         print("** no instance found **")
 
+    def emptyline(self):
+        """ called when empty line
+        is entered in response """
+        pass
+
     do_EOF = do_quit
 
 
