@@ -13,7 +13,7 @@ from models.amenity import Amenity
 
 class HBNBCommand(cmd.Cmd):
     existing_classes = ['BaseModel', 'User', 'City',
-                        'State', 'Place', 'Review', 'Amenity', '']
+                        'State', 'Place', 'Review', 'Amenity', ' ']
     prompt = "(hbnb)"
     # test = BaseModel()
     # print(test)
@@ -118,17 +118,20 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, class_type):
         """ prints all string representation of all instances based
         or not on the class name """
-        if class_type not in self.existing_classes:
-            print("** class doesn't exist **")
+        all_objects = storage.all()
+
+        if not class_type:
+            for key, value in all_objects.items():
+                print(value)
         else:
-            all_objects = storage.all()
-            # print(type(all_objects))
-            # print(all_objects)
-            for key, value in enumerate(all_objects):
-                #   print(" key = {} , value = {}".format(key, value))
-                out = all_objects[value]
-                if class_type == out.__class__.__name__:
-                    print(out)
+            if class_type not in self.existing_classes:
+                print("** class doesn't exist **")
+            else:
+                for key, value in enumerate(all_objects):
+                    #   print(" key = {} , value = {}".format(key, value))
+                    out = all_objects[value]
+                    if class_type == out.__class__.__name__:
+                        print(out)
 
     def do_update(self, *argv):
         """ updates an instance based on the class\
