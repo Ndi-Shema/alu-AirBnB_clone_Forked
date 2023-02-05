@@ -18,6 +18,15 @@ class HBNBCommand(cmd.Cmd):
     # test = BaseModel()
     # print(test)
 
+    def emptyline(self):
+        """ called when empty line
+        is entered in response """
+        pass
+
+    def do_EOF(self):
+        """ end of file quiting """
+        return True
+
     def do_quit(self, argv):
         """exit - Exit Applicaiton"""
         return True
@@ -162,11 +171,6 @@ class HBNBCommand(cmd.Cmd):
 
                     except KeyError:
                         print("** no instance found **")
-
-    def emptyline(self):
-        """ called when empty line
-        is entered in response """
-        pass
 
     do_EOF = do_quit
 
