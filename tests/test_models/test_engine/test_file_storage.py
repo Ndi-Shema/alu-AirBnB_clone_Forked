@@ -37,6 +37,8 @@ class TestCaseFileStorage(unittest.TestCase):
         self.assertEqual(path.exists(self.dir_path), True)
 
     def test_reload(self):
+        test_model = BaseModel()
+        test_model.save()
         self.my_model.reload()
         len_dict = len(self.my_model.all())
         self.assertGreater(len_dict, 0)
