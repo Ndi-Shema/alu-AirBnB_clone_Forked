@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+""" test reload user """
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
