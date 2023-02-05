@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import unittest
 from models.base_model import BaseModel
 from models.city import City
@@ -34,6 +35,7 @@ class TestCaseCity(unittest.TestCase):
         self.assertEqual(city.name, "")
         city.name = "bali"
         self.assertEqual(city.name, "bali")
+        self.assertIsNotNone(city.id)
 
     if __name__ == "__main__":
         unittest.main()
