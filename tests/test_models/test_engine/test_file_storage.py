@@ -2,9 +2,8 @@ import os
 import unittest
 from os import path
 from models.base_model import BaseModel
-
-""" testing the file storage"""
 from models.engine.file_storage import FileStorage
+""" testing the file storage"""
 
 
 class TestCaseFileStorage(unittest.TestCase):
