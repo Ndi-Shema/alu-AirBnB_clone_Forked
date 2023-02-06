@@ -14,9 +14,26 @@ from models.amenity import Amenity
 class HBNBCommand(cmd.Cmd):
     existing_classes = ['BaseModel', 'User', 'City',
                         'State', 'Place', 'Review', 'Amenity', ' ']
+    existing_commands = ['all', 'update', 'create', 'delete', 'destroy', 'show']
     prompt = "(hbnb)"
     # test = BaseModel()
     # print(test)
+
+    def default(self, line):
+        temp_list = line.split(".")
+        # if temp_list[0] in self.existing_classes:
+        # print(temp_list)
+        temp_list_two = temp_list[1].split("(")
+        # print(temp_list_two)
+        temp_list_two[1] = temp_list_two[1][:-1]
+        # print(temp_list_two)
+        class_name = temp_list[0]
+        command = temp_list_two[0]
+
+        if class_name in self.existing_classes:
+            if temp_list_two[0] in self.existing_commands:
+                self.do_all(class_name)
+                # eval("self.do_" + str(command) + "(" + class_name + ")")
 
     def emptyline(self):
         """ called when empty line
