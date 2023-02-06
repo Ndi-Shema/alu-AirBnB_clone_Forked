@@ -14,7 +14,10 @@ from models.amenity import Amenity
 class HBNBCommand(cmd.Cmd):
     existing_classes = ['BaseModel', 'User', 'City',
                         'State', 'Place', 'Review', 'Amenity', ' ']
-    existing_commands = ['all', 'update', 'create', 'delete', 'destroy', 'show']
+    existing_commands = ['all', 'update', 'create', 'delete',
+                         'count', 'destroy', 'show']
+    current_counter = 0
+    show_out = True
     prompt = "(hbnb)"
     # test = BaseModel()
     # print(test)
@@ -32,7 +35,14 @@ class HBNBCommand(cmd.Cmd):
 
         if class_name in self.existing_classes:
             if temp_list_two[0] in self.existing_commands:
-                self.do_all(class_name)
+                if command == "all":
+                    self.do_all(class_name)
+                if command == "count":
+                    self.show_out = False
+                    self.do_all(class_name)
+                    self.show_out = True
+                    print(self.current_counter)
+
                 # eval("self.do_" + str(command) + "(" + class_name + ")")
 
     def emptyline(self):
@@ -104,6 +114,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, class_type):
         """ prints all string representation of all instances based
         or not on the class name """
+        self.current_counter = 0;
         all_objects = storage.all()
         temp_dict = []
 
@@ -119,7 +130,9 @@ class HBNBCommand(cmd.Cmd):
                     out = all_objects[value]
                     if class_type == out.__class__.__name__:
                         temp_dict.append(str(out))
-                print(temp_dict)
+                        self.current_counter += 1
+                if self.show_out:
+                    print(temp_dict)
 
     def do_update(self, *argv):
         """ updates an instance based on the class\
