@@ -32,6 +32,7 @@ class HBNBCommand(cmd.Cmd):
         # print(temp_list_two)
         class_name = temp_list[0]
         command = temp_list_two[0]
+        argument = temp_list_two[1][1:-1]
 
         if class_name in self.existing_classes:
             if temp_list_two[0] in self.existing_commands:
@@ -42,7 +43,10 @@ class HBNBCommand(cmd.Cmd):
                     self.do_all(class_name)
                     self.show_out = True
                     print(self.current_counter)
-
+                if command == "show":
+                    self.do_show(class_name + " " + argument)
+                if command == "destroy":
+                    self.do_destroy(class_name + " " + argument)
                 # eval("self.do_" + str(command) + "(" + class_name + ")")
 
     def emptyline(self):
